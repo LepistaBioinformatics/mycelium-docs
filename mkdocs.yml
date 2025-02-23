@@ -1,4 +1,5 @@
 site_name: Myceliu API Gateway
+repo_url: https://github.com/LepistaBioinformatics/mycelium-docs
 nav:
   - Home: index.md
   - Introduction: intro.md
