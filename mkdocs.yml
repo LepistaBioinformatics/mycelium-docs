@@ -1,0 +1,62 @@
+site_name: Myceliu API Gateway
+nav:
+  - Home: index.md
+  - Introduction: intro.md
+  - Installation: install.md
+  - Configuration: config.md
+  - Routes: routes.md
+  - Deploy in Docker Compose: deploy-locally.md
+  - Deploy in Kubernetes with Helm: deploy-k8s.md
+  - Endpoints: endpoints.md
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - content.code.annotate
+  shortcuts:
+    help: 191    # ?
+    next: 78     # n
+    previous: 80 # p
+    search: 83   # s
+
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust
+    - json
+    - curl
+    - bash
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/LepistaBioinformatics/mycelium
