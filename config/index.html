@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configure-mycelium-api-gateway" class="md-skip">
+        <a href="#mycelium-api-gateway-configuration-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -146,11 +146,13 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -182,6 +184,7 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
@@ -254,6 +257,7 @@
       <a href=".." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Home
     
@@ -275,6 +279,7 @@
       <a href="../intro/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Introduction
     
@@ -295,6 +300,7 @@
     <li class="md-nav__item">
       <a href="../install/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     Installation
@@ -323,8 +329,22 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
+  
   
   <span class="md-ellipsis">
     Configuration
@@ -333,6 +353,202 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-vault-configurations-vault-highly-recommended-for-production-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Vault Configurations (vault): Highly recommended for production environments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-configurations-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Core Configurations (core)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Core Configurations (core)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-account-lifecycle-accountlifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Account Lifecycle (accountLifeCycle)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-webhook-webhook" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Webhook (webhook)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sql-database-adapter-settings-diesel" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. SQL Database Adapter Settings (diesel)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-notifier-adapter-settings-smtp-and-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Notifier Adapter Settings (smtp and queue)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Notifier Adapter Settings (smtp and queue)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-smtp-smtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 SMTP (smtp)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-email-queue-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Email Queue (queue)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-redis-settings-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Redis Settings (redis)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-authentication-settings-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Authentication Settings (auth)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Authentication Settings (auth)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-internal-authentication-internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Internal Authentication (internal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-external-authentication-external" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 External Authentication (external)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-api-settings-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. API Settings (api)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. API Settings (api)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-service-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Service Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-logging-settings-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Logging Settings (logging)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-tls-settings-tls" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 TLS Settings (tls)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-route-configurations-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 Route Configurations (routes)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -347,6 +563,7 @@
     <li class="md-nav__item">
       <a href="../routes/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     Routes
@@ -369,6 +586,7 @@
       <a href="../deploy-locally/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Deploy in Docker Compose
     
@@ -390,6 +608,7 @@
       <a href="../deploy-k8s/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Deploy in Kubernetes with Helm
     
@@ -410,6 +629,7 @@
     <li class="md-nav__item">
       <a href="../endpoints/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     Endpoints
@@ -442,6 +662,191 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-vault-configurations-vault-highly-recommended-for-production-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Vault Configurations (vault): Highly recommended for production environments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-configurations-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Core Configurations (core)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Core Configurations (core)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-account-lifecycle-accountlifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Account Lifecycle (accountLifeCycle)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-webhook-webhook" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Webhook (webhook)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sql-database-adapter-settings-diesel" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. SQL Database Adapter Settings (diesel)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-notifier-adapter-settings-smtp-and-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Notifier Adapter Settings (smtp and queue)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Notifier Adapter Settings (smtp and queue)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-smtp-smtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 SMTP (smtp)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-email-queue-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Email Queue (queue)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-redis-settings-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Redis Settings (redis)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-authentication-settings-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Authentication Settings (auth)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Authentication Settings (auth)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-internal-authentication-internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Internal Authentication (internal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-external-authentication-external" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 External Authentication (external)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-api-settings-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. API Settings (api)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. API Settings (api)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-service-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Service Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-logging-settings-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Logging Settings (logging)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-tls-settings-tls" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 TLS Settings (tls)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-route-configurations-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 Route Configurations (routes)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -459,8 +864,168 @@
   
 
 
-<h1 id="configure-mycelium-api-gateway">Configure Mycelium API Gateway<a class="headerlink" href="#configure-mycelium-api-gateway" title="Permanent link">&para;</a></h1>
-<p>TODO</p>
+<h1 id="mycelium-api-gateway-configuration-guide">Mycelium API Gateway Configuration Guide<a class="headerlink" href="#mycelium-api-gateway-configuration-guide" title="Permanent link">&para;</a></h1>
+<p>This document describes the configurations of the YAML file used to set up the
+server. An example file can be found in the
+<a href="../examples/config.example.yaml"><code>config.example.yaml</code></a> file.</p>
+<blockquote>
+<p><strong>🔒 KEEP SAFE</strong></p>
+<p>Mycelium provides three different ways to configure the execution environment:</p>
+<ol>
+<li>Directly in the YAML file (for development purposes).</li>
+<li>Environment variables (for production purposes but storing secrets as
+   environment variables).</li>
+<li>Externally in a Vault server (for production purposes, highly recommended
+   because the secrets are not exposed as environment variables).</li>
+</ol>
+<p>All of the three options are valid and can be used for any configuration, but
+we recommended users to use the Vault server to store the secrets in
+production environments.</p>
+<p>Example:</p>
+<p>Using directly in the YAML file:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">tokenSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my-secret&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>Using environment variables:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">tokenSecret</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYC_TOKEN_SECRET</span>
+</code></pre></div></td></tr></table></div>
+<p>Using Vault:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">tokenSecret</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">vault</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myc/core/accountLifeCycle</span>
+<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tokenSecret</span>
+</code></pre></div></td></tr></table></div>
+<p>Mycelium will try to resolve the variables at runtime, so it is not necessary
+to restart the API Gateway after changing the configuration.</p>
+</blockquote>
+<p>In the next sections, we will describe the configurations options used to start
+the API Gateway.</p>
+<h2 id="1-vault-configurations-vault-highly-recommended-for-production-environments">1. Vault Configurations (<code>vault</code>): Highly recommended for production environments<a class="headerlink" href="#1-vault-configurations-vault-highly-recommended-for-production-environments" title="Permanent link">&para;</a></h2>
+<p>If users opt to use the Vault server to store the secrets, they should configure
+the following options:</p>
+<ul>
+<li><strong><code>url</code></strong>: The URL of the Vault server. Should include the protocol, hostname,
+  and port number if necessary.</li>
+<li><strong><code>versionWithNamespace</code></strong>: The API version used to interact with the Vault
+  server. Example: <code>v1/kv</code>.</li>
+<li><strong><code>token</code></strong>: The token used to authenticate with the Vault server. For obvious
+  reasons, this configuration should be performed using direct definition in the
+  YAML file (development) or environment variables (production).</li>
+</ul>
+<h2 id="2-core-configurations-core">2. Core Configurations (<code>core</code>)<a class="headerlink" href="#2-core-configurations-core" title="Permanent link">&para;</a></h2>
+<p>Here resides the core configurations of the API Gateway. Configs defined here
+should be used to configure the basic application lifecycle and webhooks.</p>
+<h3 id="21-account-lifecycle-accountlifecycle">2.1 Account Lifecycle (<code>accountLifeCycle</code>)<a class="headerlink" href="#21-account-lifecycle-accountlifecycle" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>domainName</code></strong>: The human friendly name of the domain. Usually this is the
+  frontend domain name. Example: <code>Mycelium</code>.</li>
+<li><strong><code>domainUrl</code></strong>: The URL of the domain. Example: <code>https://mycelium.com</code>.</li>
+<li><strong><code>tokenExpiration</code></strong>: Token expiration time (in seconds).</li>
+<li><strong><code>noreplyName</code> / <code>noreplyEmail</code></strong>: Name and email for automatic messages.</li>
+<li><strong><code>supportName</code> / <code>supportEmail</code></strong>: Name and email for support.</li>
+<li><strong><code>locale</code></strong>: Default locale. Emails will be sent in this locale.</li>
+<li><strong><code>tokenSecret</code></strong>: A unique secret used to encrypt JWT tokens.</li>
+</ul>
+<h3 id="22-webhook-webhook">2.2 Webhook (<code>webhook</code>)<a class="headerlink" href="#22-webhook-webhook" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>acceptInvalidCertificates</code></strong>: Allows self-signed certificates.</li>
+<li><strong><code>consumeIntervalInSecs</code></strong>: The interval in seconds between each batch of
+  webhook dispatch events.</li>
+<li><strong><code>consumeBatchSize</code></strong>: The number of events processed per batch.</li>
+<li><strong><code>maxAttempts</code></strong>: The maximum number of attempts to process an event.</li>
+</ul>
+<h2 id="3-sql-database-adapter-settings-diesel">3. SQL Database Adapter Settings (<code>diesel</code>)<a class="headerlink" href="#3-sql-database-adapter-settings-diesel" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><code>databaseUrl</code></strong>: The database URL. This is recommended to be stored in the
+  Vault server.</li>
+</ul>
+<h2 id="4-notifier-adapter-settings-smtp-and-queue">4. Notifier Adapter Settings (<code>smtp</code> and <code>queue</code>)<a class="headerlink" href="#4-notifier-adapter-settings-smtp-and-queue" title="Permanent link">&para;</a></h2>
+<h3 id="41-smtp-smtp">4.1 SMTP (<code>smtp</code>)<a class="headerlink" href="#41-smtp-smtp" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>host</code></strong>: The SMTP server.</li>
+<li><strong><code>username</code> / <code>password</code></strong>: Smtp credentials.</li>
+</ul>
+<h3 id="42-email-queue-queue">4.2 Email Queue (<code>queue</code>)<a class="headerlink" href="#42-email-queue-queue" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>emailQueueName</code></strong>: The name of the email queue.</li>
+<li><strong><code>consumeIntervalInSecs</code></strong>: The interval in seconds between each batch of
+  email dispatch events.</li>
+</ul>
+<h2 id="5-redis-settings-redis">5. Redis Settings (<code>redis</code>)<a class="headerlink" href="#5-redis-settings-redis" title="Permanent link">&para;</a></h2>
+<p>Redis is used to store cache and session data.</p>
+<ul>
+<li><strong><code>protocol</code></strong>: The protocol used to connect to the Redis server.</li>
+<li><strong><code>hostname</code></strong>: The address of the Redis server.</li>
+<li><strong><code>password</code></strong>: The password used to connect to the Redis server.</li>
+</ul>
+<h2 id="6-authentication-settings-auth">6. Authentication Settings (<code>auth</code>)<a class="headerlink" href="#6-authentication-settings-auth" title="Permanent link">&para;</a></h2>
+<p>Mycelium provides a flexible authentication system that allows users to
+configure internal and external authentication providers. Internal
+authentication is the default authentication provider and is used to
+authenticate users against the Mycelium database. External authentication is
+used to authenticate users against any external provider that supports OAuth
+2.0.</p>
+<h3 id="61-internal-authentication-internal">6.1 Internal Authentication (<code>internal</code>)<a class="headerlink" href="#61-internal-authentication-internal" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>jwtSecret</code></strong>: A unique secret used to encrypt JWT tokens.</li>
+<li><strong><code>jwtExpiresIn</code></strong>: JWT expiration time.</li>
+<li><strong><code>tmpExpiresIn</code></strong>: Temporary token expiration time. This is used to generate
+  temporary tokens that are used during password reset and account creation
+  processes.</li>
+</ul>
+<h3 id="62-external-authentication-external">6.2 External Authentication (<code>external</code>)<a class="headerlink" href="#62-external-authentication-external" title="Permanent link">&para;</a></h3>
+<p>Here you can configure any external provider that supports OAuth 2.0. See
+example in <a href="../examples/config.example.yaml"><code>config.example.yaml</code></a>.</p>
+<ul>
+<li><strong><code>issuer</code></strong>: The issuer of the OAuth 2.0 provider. This is a URL that
+  identifies the provider.</li>
+<li><strong><code>jwksUri</code></strong>: The URI of the JWKS endpoint. This is a URL that points to the
+  JWKS (JSON Web Key Set) endpoint of the provider.</li>
+<li><strong><code>userInfoUrl</code></strong>: The URI of the user info endpoint. This is a URL that
+  points to the user info endpoint of the provider.</li>
+<li><strong><code>audience</code></strong>: The audience of the OAuth 2.0 provider. This is a string that
+  identifies the API that the provider is used for.</li>
+</ul>
+<h2 id="7-api-settings-api">7. API Settings (<code>api</code>)<a class="headerlink" href="#7-api-settings-api" title="Permanent link">&para;</a></h2>
+<h3 id="71-service-settings">7.1 Service Settings<a class="headerlink" href="#71-service-settings" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>serviceIp</code></strong>: Service IP address. Usually <code>0.0.0.0</code>.</li>
+<li><strong><code>servicePort</code></strong>: Service port. Usually <code>8080</code>.</li>
+<li><strong><code>serviceWorkers</code></strong>: Number of workers. Usually <code>4</code>.</li>
+<li><strong><code>gatewayTimeout</code></strong>: Gateway timeout. Usually <code>30</code> seconds.</li>
+<li><strong><code>allowedOrigins</code></strong>: List of allowed origins. Usually <code>*</code>.</li>
+<li><strong><code>healthCheckInterval</code></strong>: Health check interval. Usually <code>120</code> seconds.</li>
+<li><strong><code>maxRetryCount</code></strong>: Maximum retry count. Usually <code>3</code>.</li>
+<li><strong><code>cache</code></strong>: Cache settings. See below for more details.</li>
+<li><strong><code>cache.jwksTtl</code></strong>: JWKS cache TTL. Usually <code>3600</code> seconds.</li>
+<li><strong><code>cache.emailTtl</code></strong>: Email cache TTL. Usually <code>120</code> seconds.</li>
+<li><strong><code>cache.profileTtl</code></strong>: Profile cache TTL. Usually <code>120</code> seconds.</li>
+<li><strong><code>allowedOrigins</code></strong>: List of allowed origins. Usually <code>*</code> for development
+  purposes.</li>
+</ul>
+<h3 id="72-logging-settings-logging">7.2 Logging Settings (<code>logging</code>)<a class="headerlink" href="#72-logging-settings-logging" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>level</code></strong>: Log level for each module. See examples in
+  <a href="../examples/config.example.yaml"><code>config.example.yaml</code></a>. Values can be defined
+  globally or individually for each module.</li>
+<li><strong><code>format</code></strong>: Log format (jsonl/ansi).</li>
+<li><strong><code>target</code></strong>: Log destination (stdout/file/collector). See examples in
+  <a href="../examples/config.example.yaml"><code>config.example.yaml</code></a>.</li>
+</ul>
+<h3 id="73-tls-settings-tls">7.3 TLS Settings (<code>tls</code>)<a class="headerlink" href="#73-tls-settings-tls" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>tlsCert</code></strong> / <strong><code>tlsKey</code></strong>: TLS certificates. If stored in Vault, store the
+  raw values as strings.</li>
+</ul>
+<h3 id="74-route-configurations-routes">7.4 Route Configurations (<code>routes</code>)<a class="headerlink" href="#74-route-configurations-routes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>routes</code></strong>: The file system path to the routes configuration file. See
+  <a href="../examples/routes.example.yaml"><code>routes.example.yaml</code></a> for more details.</li>
+</ul>
 
 
 
@@ -522,10 +1087,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
