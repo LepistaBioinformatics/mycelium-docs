@@ -10,9 +10,9 @@ manager.
 Before you start, make sure you have the following installed on your machine:
 
 - **Postgres** (Database for tenant and user management)
+- **Redis** (Caching for performance)
 - **HashiCorp Vault** (optional but recommended for secret management in
   production environments)
-- **Redis** (Caching for performance)
 - **Docker** (optional for quick deployment)
 
 ## Installation using cargo
