@@ -7,7 +7,7 @@ everything you need for seamless authentication, authorization, and security. �
 
 ## 🌟 Key Features
 
-### AI-aware API Gateway
+### 🧠 AI-aware API Gateway
 
 - **Service Discovery**: Discover downstream APIs and their capabilities.
 Mycelium API Gateway is designed to be AI-aware, meaning it can understand the
