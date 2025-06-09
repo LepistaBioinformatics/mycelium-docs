@@ -7,6 +7,18 @@ everything you need for seamless authentication, authorization, and security. �
 
 ## 🌟 Key Features
 
+### AI-aware API Gateway
+
+- **Service Discovery**: Discover downstream APIs and their capabilities.
+Mycelium API Gateway is designed to be AI-aware, meaning it can understand the
+capabilities of the downstream APIs and use that information to route requests
+appropriately.
+- **Full control of downstream APIs**: Downstream APIs can control whether they
+  routes should be discovered or not.
+- **Health Checks**: Downstream APIs can define health checks to indicate when
+  they are ready to receive requests. Health status is automatically updated
+  based on the health checks and informed during discovery.
+
 ### 🔒 Authentication & Authorization
 
 - **Federated Identity Support**: Integrate with external identity providers
@@ -86,7 +98,8 @@ growth and attract more contributors!
 
 ### License
 
-Mycelium API Gateway is licensed under the [Apache 2.0 License](https://github.com/LepistaBioinformatics/mycelium/blob/65554e2ef6ee40224c89b4b55f58521cb07e46b6/LICENSE).
+Mycelium API Gateway is licensed under the [Apache 2.0
+License](https://github.com/LepistaBioinformatics/mycelium/blob/main/LICENSE).
 Additional restrictions for commercial use apply under the Commons Clause.
 
 ---

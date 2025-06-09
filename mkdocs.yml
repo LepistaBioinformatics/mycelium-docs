@@ -1,14 +1,14 @@
-site_name: Myceliu API Gateway
-repo_url: https://github.com/LepistaBioinformatics/mycelium-docs
+site_name: Mycelium API Gateway
+repo_url: https://github.com/LepistaBioinformatics/mycelium
 nav:
   - Home: index.md
-  - Introduction: intro.md
   - Installation: install.md
   - Configuration: config.md
   - Routes: routes.md
   - Deploy in Docker Compose: deploy-locally.md
   - Deploy in Kubernetes with Helm: deploy-k8s.md
-  - Endpoints: endpoints.md
+  - Downstream APIs: downstream-apis.md
+  - Webhooks: webhooks.md
 
 theme:
   name: material

@@ -177,4 +177,4 @@ example in [`config.example.yaml`](./examples/config.example.yaml).
 ### 7.4 Route Configurations (`routes`)
 
 - **`routes`**: The file system path to the routes configuration file. See
-  [`routes.example.yaml`](./examples/routes.example.yaml) for more details.
+  [`Routes Configuration`](./routes.md) for more details.
