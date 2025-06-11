@@ -212,7 +212,7 @@ dictionaries. Each dictionary contains the following keys:
 
     ```yaml
     - group: public
-        path: /users/*
+      path: /users/*
     ```
 
 - `methods`: A list of HTTP methods that will be used to access the route. In
@@ -227,8 +227,8 @@ dictionaries. Each dictionary contains the following keys:
 
   ```yaml
   - group: public
-      path: /users/*
-      secretName: secret-authorization-header
+    path: /users/*
+    secretName: secret-authorization-header
   ```
 
 - `acceptInsecureRouting`: Whether the route should accept insecure routing.
@@ -239,6 +239,6 @@ dictionaries. Each dictionary contains the following keys:
 
   ```yaml
   - group: public
-      path: /users/*
-      acceptInsecureRouting: true
+    path: /users/*
+    acceptInsecureRouting: true
   ```
