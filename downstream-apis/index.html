@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../deploy-k8s/">
+        <link rel="prev" href="../config/">
       
       
-        <link rel="next" href="../webhooks/">
+        <link rel="next" href="../deploy-locally/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -317,20 +317,80 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../routes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Downstream APIs
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Routes
+    Downstream APIs
     
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#service-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -383,38 +443,6 @@
       
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    Downstream APIs
-    
-  </span>
-  
-
-      </a>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
   
   
     <li class="md-nav__item">
@@ -453,6 +481,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#service-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -471,7 +525,265 @@
 
 
 <h1 id="management-endpoints">Management Endpoints<a class="headerlink" href="#management-endpoints" title="Permanent link">&para;</a></h1>
-<p>TODO</p>
+<p>Downstream services are configured using a YAML file. An example of such a
+definition can be found in the
+<a href="../examples/routes.example.yaml"><code>examples/routes.example.yaml</code></a> file.</p>
+<h2 id="service-configuration">Service Configuration<a class="headerlink" href="#service-configuration" title="Permanent link">&para;</a></h2>
+<p>The service configuration is done in the <code>services</code> section of the YAML file.
+Each service is defined as a dictionary with the following keys:</p>
+<p><strong>Required keys:</strong></p>
+<ul>
+<li>
+<p><code>name</code>: The name of the service. This is used to identify the service and call
+  it from the gateway url path. Them, remember to define the service name using
+  kebab-case. Example: <code>my-service</code>.</p>
+</li>
+<li>
+<p><code>host</code> or <code>hosts</code>: The host(s) of the service. The host should include the
+  port number and ignore the protocol. It can be a single host or a vector of
+  hosts.</p>
+</li>
+<li>
+<p><code>protocol</code>: The protocol of the service. Example: <code>http</code> or <code>https</code>.</p>
+</li>
+<li>
+<p><code>routes</code>: This is an important field. Thus, it should be described in more
+  detail in the <a href="#routes">routes section</a>.</p>
+</li>
+</ul>
+<p><strong>Optional keys:</strong></p>
+<ul>
+<li>
+<p><code>discoverable</code>: Whether the service is discoverable by LLM agents.</p>
+</li>
+<li>
+<p><code>secrets</code>: A list of named secrets that are used to authenticate mycelium with
+  the downstream service. Mycelium provides two types of secrets:</p>
+</li>
+<li>
+<p><code>queryParameter</code>: A query parameter in the request to the downstream
+    service. Query parameters will be added to the request as a query parameter.
+    It contains two fields:</p>
+<ul>
+<li><code>name</code>: The name of the query parameter.</li>
+<li><code>token</code>: The token to be used to authenticate the request.</li>
+</ul>
+</li>
+<li>
+<p><code>authorizationHeader</code>: An authorization header in the request to the
+    downstream service. Authorization headers will be added to the request as an
+    authorization header. It contains three fields:</p>
+<ul>
+<li><code>name</code>: The name of the authorization header.</li>
+<li><code>prefix</code>: The prefix of the authorization header.</li>
+<li><code>token</code>: The token to be used to authenticate the request.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>[!NOTE] Mycelium supports the definition of secrets using environment
+variables and vault secrets. For both, the secret should be defined in a
+<code>JSON</code> format.</p>
+<p>Direct definition:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret-query-token</span>
+<span class="w">  </span><span class="nt">queryParameter</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;token&quot;</span>
+<span class="w">    </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my-secret-01&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret-authorization-header</span>
+<span class="w">  </span><span class="nt">authorizationHeader</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Authorization&quot;</span>
+<span class="w">    </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Bearer</span><span class="nv"> </span><span class="s">&quot;</span>
+<span class="w">    </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my-secret-01&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>Environment variable definition:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MY_SECRET_01</span><span class="o">=</span><span class="s1">&#39;{&quot;queryParameter&quot;: {&quot;name&quot;: &quot;token&quot;,&quot;token&quot;: &quot;my-secret-01&quot;}}&#39;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret-query-token</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MY_SECRET_01</span>
+</code></pre></div></td></tr></table></div>
+<p>Vault secret definition:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret-query-token</span>
+<span class="w">  </span><span class="nt">vault</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-vault-path</span>
+</code></pre></div></td></tr></table></div>
+</blockquote>
+<p><strong>Optional keys together with <code>discoverable</code> field:</strong></p>
+<ul>
+<li>
+<p><code>id</code>: The id of the service. If not provided, the id will generated as a UUID
+  V3 from the <code>name</code> field. We highly recommend to set this field as an UUID V4
+  to guarantee the uniqueness and the replicability of the service.</p>
+</li>
+<li>
+<p><code>description</code>: The description of the service.</p>
+</li>
+<li>
+<p><code>openapiPath</code>: The path to the OpenAPI specification file.</p>
+</li>
+<li>
+<p><code>healthCheckPath</code>: The path to the health check endpoint.</p>
+</li>
+<li>
+<p><code>capabilities</code>: The capabilities of the service. A vector of strings that
+  describe the capabilities of the service. Example: if the service is an
+  authentication service, the capabilities could be <code>authenticate</code>, <code>Oauth2</code>,
+  <code>JWT</code>, etc.</p>
+</li>
+<li>
+<p><code>serviceType</code>: One of the following: <code>rest-api</code>, <code>unknown</code>. The type should be
+  written using kebab-case. New types can be added by opening an issue.</p>
+</li>
+<li>
+<p><code>isContextApi</code>: Whether the service is a context API or not. Context APIs are
+  used to describe the usage of the service in the context of the gateway. As
+  the authentication service is a context API, it is used to authenticate the
+  user before accessing the downstream service.</p>
+</li>
+</ul>
+<h2 id="routes">Routes<a class="headerlink" href="#routes" title="Permanent link">&para;</a></h2>
+<p>Downstream routes should be defined in the <code>routes</code> section. It is a vector of
+dictionaries. Each dictionary contains the following keys:</p>
+<p><strong>Required keys:</strong></p>
+<ul>
+<li><code>group</code>: The security group that will be used to protect the route. Currently,
+  seven security groups are supported:</li>
+<li>
+<p><code>public</code>: The route is public and does not require authentication. Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p><code>authenticated</code>: The route is authenticated and requires a valid JWT token.
+    Mycelium will inject the user email into the request headers named
+    <code>x-mycelium-email</code> for the downstream service. Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">authenticated</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p><code>protected</code>: Protected paths requires that users are authenticated and have
+    a valid profile registered in the gateway. THe full profile should be
+    injected as a request header named <code>x-mycelium-profile</code>. Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">protected</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p><code>protectedByRoles</code>: Protected paths requires that users are authenticated
+    and received a valid role through the mycelium guest system. If the user
+    does not have a valid role, the request will be rejected with a 403 error.
+    The profile will be injected as a request header named <code>x-mycelium-profile</code>.
+    Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="kt">!protectedByRoles</span>
+<span class="w">    </span><span class="nt">roles</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p><code>protectedByPermissionedRoles</code>: Protected paths requires that users are
+    authenticated and received a valid role through the mycelium guest system.
+    If the user does not have a valid role, the request will be rejected with a
+    403 error. The profile will be injected as a request header named
+    <code>x-mycelium-profile</code>. Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="kt">!protectedByPermissionedRoles</span>
+<span class="w">    </span><span class="nt">permissionedRoles</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">admin</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">write</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">editor</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">read</span><span class="p p-Indicator">]</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p><code>protectedByServiceTokenWithRole</code>: Mycelium already supports route
+    protection by service token with role. The definition is the same of the
+    <code>protectedByRoles</code> group. Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="kt">!protectedByServiceTokenWithRole</span>
+<span class="w">    </span><span class="nt">roles</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+</code></pre></div></td></tr></table></div>
+<p>To access the protected route, users should provide a valid service token.
+Service tokens are defined as connection strings that defines the roles that
+the service token should have. Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MY_SERVICE_TOKEN</span><span class="o">=</span><span class="s1">&#39;tid=c8282c6d-ce0b-4fed-a4e8-8e8a70f5b789;rid=8d7b119b-a12b-4ff1-9db0-5b6d05794282;r=newbie;edt=2025-01-11T21:51:01-03:00;sig=asd132f141e1...3a02f56bf0c4f123&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p>Connection strings should include information about tenant (tid), role
+(rid), the role name &reg;, and expiration date (edt). The signature (sig) is
+used to verify the validity of the connection string. The role name &reg;
+should be checked against the roles defined in the
+<code>protectedByServiceTokenWithRole</code> group.</p>
+</li>
+<li>
+<p><code>protectedByServiceTokenWithPermissionedRoles</code>: Mycelium already supports
+    route protection by service token with permissioned roles. The definition is
+    the same of the <code>protectedByPermissionedRoles</code> group. Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="kt">!protectedByServiceTokenWithPermissionedRoles</span>
+<span class="w">    </span><span class="nt">permissionedRoles</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">admin</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">write</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">editor</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">read</span><span class="p p-Indicator">]</span>
+</code></pre></div></td></tr></table></div>
+<p>Service tokens are defined as connection strings that defines the roles that
+the service token has. Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MY_SERVICE_TOKEN</span><span class="o">=</span><span class="s1">&#39;tid=c8282c6d-ce0b-4fed-a4e8-8e8a70f5b789;rid=8d7b119b-a12b-4ff1-9db0-5b6d05794282;pr=newbie:0;edt=2025-01-11T21:51:01-03:00;sig=dcd32f141e1...3a02f56bf0c4f479&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p>Connection strings should include information about tenant (tid), role
+(rid), the permissioned role name (pr), and expiration date (edt). The
+signature (sig) is used to verify the validity of the connection string. The
+permissioned role name (pr = newbie with view permission) should be used to
+specify the permissioned role name that the service token should have.</p>
+</li>
+<li>
+<p><code>path</code>: The path of the route. Users can define as a wildcard. Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/users/*</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p><code>methods</code>: A list of HTTP methods that will be used to access the route. In
+  addition to default HTTP methods, users can use two reserved words, <code>ALL</code> and
+  <code>NONE</code>. The first one will match all the HTTP methods and the second one will
+  match none of the HTTP methods.</p>
+</li>
+</ul>
+<p><strong>Optional keys:</strong></p>
+<ul>
+<li><code>secretName</code>: Here users can simple reference the name of the secret defined at
+  the service level. Mycelium will resolve the secret at runtime.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/users/*</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">secretName</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret-authorization-header</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code>acceptInsecureRouting</code>: Whether the route should accept insecure routing.
+  This is usual when the downstream service is using a self-signed certificate.
+  It is important to note that this should be used with caution, avoiding to use
+  it when the downstream service is using a certificate signed by a trusted
+  certificate authority. Example:</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/users/*</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">acceptInsecureRouting</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div></td></tr></table></div>
 
 
 

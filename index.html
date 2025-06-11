@@ -504,12 +504,12 @@
   
   
     <li class="md-nav__item">
-      <a href="routes/" class="md-nav__link">
+      <a href="downstream-apis/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Routes
+    Downstream APIs
     
   </span>
   
@@ -554,28 +554,6 @@
   
   <span class="md-ellipsis">
     Deploy in Kubernetes with Helm
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="downstream-apis/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Downstream APIs
     
   </span>
   
@@ -804,79 +782,134 @@ everything you need for seamless authentication, authorization, and security. �
 <h2 id="key-features">🌟 Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
 <h3 id="ai-aware-api-gateway">🧠 AI-aware API Gateway<a class="headerlink" href="#ai-aware-api-gateway" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Service Discovery</strong>: Discover downstream APIs and their capabilities.
+<li>
+<p><strong>Service Discovery</strong>: Discover downstream APIs and their capabilities.
 Mycelium API Gateway is designed to be AI-aware, meaning it can understand the
 capabilities of the downstream APIs and use that information to route requests
-appropriately.</li>
-<li><strong>Full control of downstream APIs</strong>: Downstream APIs can control whether they
-  routes should be discovered or not.</li>
-<li><strong>Health Checks</strong>: Downstream APIs can define health checks to indicate when
+appropriately.</p>
+</li>
+<li>
+<p><strong>Full control of downstream APIs</strong>: Downstream APIs can control whether they
+  routes should be discovered or not.</p>
+</li>
+<li>
+<p><strong>Health Checks</strong>: Downstream APIs can define health checks to indicate when
   they are ready to receive requests. Health status is automatically updated
-  based on the health checks and informed during discovery.</li>
+  based on the health checks and informed during discovery.</p>
+</li>
 </ul>
 <h3 id="authentication-authorization">🔒 Authentication &amp; Authorization<a class="headerlink" href="#authentication-authorization" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Federated Identity Support</strong>: Integrate with external identity providers
-  while maintaining full control over roles and permissions.</li>
-<li><strong>Role-Based Access Control (RBAC)</strong>: Define granular roles for both the
-  gateway and downstream APIs using simple YAML configurations.</li>
-<li><strong>Two-Factor Authentication (2FA)</strong>: Built-in support for TOTP to ensure an
-  extra layer of security.</li>
+<li>
+<p><strong>Oauth2</strong>: Support for any OAuth2 identity provider with a fell lines of
+  configuration.</p>
+</li>
+<li>
+<p><strong>Two-Factor Authentication (2FA)</strong>: Built-in support for TOTP to ensure an
+  extra layer of security when users opts to use the internal authentication
+  system.</p>
+</li>
+<li>
+<p><strong>Federated Identity Support</strong>: Integrate with external identity providers
+  while maintaining full control over roles and permissions.</p>
+</li>
+<li>
+<p><strong>Role-Based Access Control (RBAC)</strong>: Define granular roles for both the
+  gateway and downstream APIs using simple YAML configurations.</p>
+</li>
 </ul>
 <h3 id="multi-tenant-architecture">🏢 Multi-Tenant Architecture<a class="headerlink" href="#multi-tenant-architecture" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Tenant Management</strong>: Create and manage tenants with subscription-based
-  accounts.</li>
-<li><strong>Role Assignment</strong>: Invite users to join tenants and assign them specific
-  roles to streamline collaboration.</li>
+<li>
+<p><strong>Tenant Management</strong>: Create and manage tenants with subscription-based
+  accounts.</p>
+</li>
+<li>
+<p><strong>Role Assignment</strong>: Invite users to join tenants and assign them specific
+  roles to streamline collaboration.</p>
+</li>
 </ul>
 <h3 id="secure-secrets-management">🔑 Secure Secrets Management<a class="headerlink" href="#secure-secrets-management" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Vault Integration</strong>: Leverage HashiCorp Vault for secure storage of secrets.</li>
-<li><strong>Flexible Configurations</strong>: Use secrets stored in Vault, environment
-  variables, or define them in YAML.</li>
-<li><strong>Dynamic Secret Injection</strong>: Automate secure secret delivery to downstream
-  APIs.</li>
+<li>
+<p><strong>Vault Integration</strong>: Leverage HashiCorp Vault for secure storage of secrets.</p>
+</li>
+<li>
+<p><strong>Flexible Configurations</strong>: Use secrets stored in Vault, environment
+  variables, or define them in YAML.</p>
+</li>
+<li>
+<p><strong>Dynamic Secret Injection</strong>: Automate secure secret delivery to downstream
+  APIs.</p>
+</li>
 </ul>
 <h3 id="api-routing-webhooks">🌐 API Routing &amp; Webhooks<a class="headerlink" href="#api-routing-webhooks" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Smart API Routing</strong>: Easily configure API routes with support for secure
-  token-based authentication.</li>
-<li><strong>Webhook Support</strong>: Define webhooks with secrets for secure callbacks and
-  notifications.</li>
+<li>
+<p><strong>Smart API Routing</strong>: Easily configure API routes with support for secure
+  token-based authentication.</p>
+</li>
+<li>
+<p><strong>Webhook Support</strong>: Define webhooks with secrets for secure callbacks and
+  notifications.</p>
+</li>
 </ul>
 <h3 id="yaml-driven-configuration">📄 YAML-Driven Configuration<a class="headerlink" href="#yaml-driven-configuration" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Simple and Intuitive</strong>: Manage all configurations (tenants, roles,
-  permissions, routes, and security) with easy-to-read YAML files.</li>
-<li><strong>Environment Flexibility</strong>: Combine YAML definitions with environment
-  variables for maximum flexibility.</li>
+<li>
+<p><strong>Simple and Intuitive</strong>: Manage all configurations (tenants, roles,
+  permissions, routes, and security) with easy-to-read YAML files.</p>
+</li>
+<li>
+<p><strong>Environment Flexibility</strong>: Combine YAML definitions with environment
+  variables for maximum flexibility.</p>
+</li>
 </ul>
 <h3 id="security-first-design">🛡️ Security-First Design<a class="headerlink" href="#security-first-design" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Downstream Security</strong>: Automatically pass role-based security credentials to
-  downstream APIs.</li>
-<li><strong>Token Management</strong>: Store and securely pass tokens in request headers.</li>
-<li><strong>Compliance Ready</strong>: Designed with modern security practices to meet
-  enterprise compliance requirements.</li>
+<li>
+<p><strong>Downstream Security</strong>: Automatically pass role-based security credentials to
+  downstream APIs.</p>
+</li>
+<li>
+<p><strong>Token Management</strong>: Store and securely pass tokens in request headers.</p>
+</li>
+<li>
+<p><strong>Compliance Ready</strong>: Designed with modern security practices to meet
+  enterprise compliance requirements.</p>
+</li>
 </ul>
 <h2 id="why-choose-mycelium-api-gateway">🎯 Why Choose Mycelium API Gateway?<a class="headerlink" href="#why-choose-mycelium-api-gateway" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Community-Driven and Open Source</strong>: Leverage a growing community while
-   benefiting from an open-source model.</li>
-<li><strong>Scalable and Modular</strong>: Designed to grow with your needs, from startups to
-   enterprise-scale applications.</li>
-<li><strong>Developer-Friendly</strong>: YAML-based configurations, secure secret management,
-   and role-based policies make it easy to get started.</li>
+<li>
+<p><strong>Community-Driven and Open Source</strong>: Leverage a growing community while
+   benefiting from an open-source model.</p>
+</li>
+<li>
+<p><strong>Scalable and Modular</strong>: Designed to grow with your needs, from startups to
+   enterprise-scale applications.</p>
+</li>
+<li>
+<p><strong>Developer-Friendly</strong>: YAML-based configurations, secure secret management,
+   and role-based policies make it easy to get started.</p>
+</li>
 </ol>
 <h2 id="getting-started">🚀 Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Postgres</strong> (Database for tenant and user management)</li>
-<li><strong>HashiCorp Vault</strong> (optional but recommended for secret management in
-  production environments)</li>
-<li><strong>Redis</strong> (Caching for performance)</li>
-<li><strong>Docker</strong> (optional for quick deployment)</li>
+<li>
+<p><strong>Postgres</strong> (Database for tenant and user management)</p>
+</li>
+<li>
+<p><strong>Redis</strong> (Caching for performance)</p>
+</li>
+<li>
+<p><strong>HashiCorp Vault</strong> (optional but recommended for secret management in
+  production environments)</p>
+</li>
+<li>
+<p><strong>Docker</strong> (optional for quick deployment)</p>
+</li>
 </ul>
 <h2 id="join-the-community">💬 Join the Community<a class="headerlink" href="#join-the-community" title="Permanent link">&para;</a></h2>
 <ul>
