@@ -846,6 +846,20 @@
 <p>This document describes the configurations of the YAML file used to set up the
 server. An example file can be found in the
 <a href="../examples/config.example.yaml"><code>config.example.yaml</code></a> file.</p>
+<p>In the next sections, we will describe the configurations options used to start
+the API Gateway.</p>
+<h2 id="1-vault-configurations-vault-highly-recommended-for-production-environments">1. Vault Configurations (<code>vault</code>): Highly recommended for production environments<a class="headerlink" href="#1-vault-configurations-vault-highly-recommended-for-production-environments" title="Permanent link">&para;</a></h2>
+<p>If users opt to use the Vault server to store the secrets, they should configure
+the following options:</p>
+<ul>
+<li><strong><code>url</code></strong>: The URL of the Vault server. Should include the protocol, hostname,
+  and port number if necessary.</li>
+<li><strong><code>versionWithNamespace</code></strong>: The API version used to interact with the Vault
+  server. Example: <code>v1/kv</code>.</li>
+<li><strong><code>token</code></strong>: The token used to authenticate with the Vault server. For obvious
+  reasons, this configuration should be performed using direct definition in the
+  YAML file (development) or environment variables (production).</li>
+</ul>
 <blockquote>
 <p><strong>🔒 KEEP SAFE</strong></p>
 <p>Mycelium provides three different ways to configure the execution environment:</p>
@@ -880,20 +894,6 @@ production environments.</p>
 <p>Mycelium will try to resolve the variables at runtime, so it is not necessary
 to restart the API Gateway after changing the configuration.</p>
 </blockquote>
-<p>In the next sections, we will describe the configurations options used to start
-the API Gateway.</p>
-<h2 id="1-vault-configurations-vault-highly-recommended-for-production-environments">1. Vault Configurations (<code>vault</code>): Highly recommended for production environments<a class="headerlink" href="#1-vault-configurations-vault-highly-recommended-for-production-environments" title="Permanent link">&para;</a></h2>
-<p>If users opt to use the Vault server to store the secrets, they should configure
-the following options:</p>
-<ul>
-<li><strong><code>url</code></strong>: The URL of the Vault server. Should include the protocol, hostname,
-  and port number if necessary.</li>
-<li><strong><code>versionWithNamespace</code></strong>: The API version used to interact with the Vault
-  server. Example: <code>v1/kv</code>.</li>
-<li><strong><code>token</code></strong>: The token used to authenticate with the Vault server. For obvious
-  reasons, this configuration should be performed using direct definition in the
-  YAML file (development) or environment variables (production).</li>
-</ul>
 <h2 id="2-core-configurations-core">2. Core Configurations (<code>core</code>)<a class="headerlink" href="#2-core-configurations-core" title="Permanent link">&para;</a></h2>
 <p>Here resides the core configurations of the API Gateway. Configs defined here
 should be used to configure the basic application lifecycle and webhooks.</p>
