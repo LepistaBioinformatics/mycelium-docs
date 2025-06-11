@@ -4,6 +4,22 @@ This document describes the configurations of the YAML file used to set up the
 server. An example file can be found in the
 [`config.example.yaml`](./examples/config.example.yaml) file.
 
+In the next sections, we will describe the configurations options used to start
+the API Gateway.
+
+## 1. Vault Configurations (`vault`): Highly recommended for production environments
+
+If users opt to use the Vault server to store the secrets, they should configure
+the following options:
+
+- **`url`**: The URL of the Vault server. Should include the protocol, hostname,
+  and port number if necessary.
+- **`versionWithNamespace`**: The API version used to interact with the Vault
+  server. Example: `v1/kv`.
+- **`token`**: The token used to authenticate with the Vault server. For obvious
+  reasons, this configuration should be performed using direct definition in the
+  YAML file (development) or environment variables (production).
+
 > **🔒 KEEP SAFE**
 >
 > Mycelium provides three different ways to configure the execution environment:
@@ -44,22 +60,6 @@ server. An example file can be found in the
 >
 > Mycelium will try to resolve the variables at runtime, so it is not necessary
 > to restart the API Gateway after changing the configuration.
-
-In the next sections, we will describe the configurations options used to start
-the API Gateway.
-
-## 1. Vault Configurations (`vault`): Highly recommended for production environments
-
-If users opt to use the Vault server to store the secrets, they should configure
-the following options:
-
-- **`url`**: The URL of the Vault server. Should include the protocol, hostname,
-  and port number if necessary.
-- **`versionWithNamespace`**: The API version used to interact with the Vault
-  server. Example: `v1/kv`.
-- **`token`**: The token used to authenticate with the Vault server. For obvious
-  reasons, this configuration should be performed using direct definition in the
-  YAML file (development) or environment variables (production).
 
 ## 2. Core Configurations (`core`)
 
