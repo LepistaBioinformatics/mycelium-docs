@@ -1,3 +1,0 @@
-# Configure routes
-
-TODO

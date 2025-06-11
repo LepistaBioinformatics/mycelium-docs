@@ -4,10 +4,9 @@ nav:
   - Home: index.md
   - Installation: install.md
   - Configuration: config.md
-  - Routes: routes.md
+  - Downstream APIs: downstream-apis.md
   - Deploy in Docker Compose: deploy-locally.md
   - Deploy in Kubernetes with Helm: deploy-k8s.md
-  - Downstream APIs: downstream-apis.md
   - Webhooks: webhooks.md
 
 theme:
